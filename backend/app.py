@@ -13,11 +13,12 @@ from dotenv import load_dotenv
 from flask import Flask, jsonify, request, send_file
 from flask_cors import CORS
 
+load_dotenv()
+
 from services import ai, parser
 from services.docx_builder import build_docx
 from services.pdf_builder import PDFBuildError, docx_bytes_to_pdf
 
-load_dotenv()
 
 app = Flask(__name__)
 app.config["MAX_CONTENT_LENGTH"] = 15 * 1024 * 1024  # 15 MB uploads
